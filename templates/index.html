@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="http://127.0.0.1:5000/static/styles.css" />
+  </head>
+  <body>
+
+    <div class= "bg">
+        <canvas id="canvas" width="32" height="32"></canvas>
+    </div>
+
+    <div class="FirstScreen" style="height: 740px;">
+      <img src="http://127.0.0.1:5000/static/materials/logo.svg" class="logo" />
+      <div class="Header">Where Imagination<br />Meets Artistry</div>
+      <div class="Text">Transform Your Dreams into Abstract<br />Masterpieces with DreamCanvas!</div>
+  
+
+      
+      <div class="ButtonContainer">
+          <a href="#GenerationScreen">
+              <img id="Button1" src="http://127.0.0.1:5000/static/materials/button1.svg" />
+          </a>
+      </div>
+      <div class="switch-container">
+                <label class="switch">
+                   <input type="checkbox" id="toggleSwitch">
+                   <span class="slider round"></span>
+                </label>
+                <label for="toggleSwitch" style="font-size: 20px;">Speed Up</label>
+            </div>
+  </div>
+  
+
+  <div class="AboutUsScreen" style="height: 380px;">
+      <div class="Bg" style="height: 360px;"></div>
+      <div class="Title">What is DreamCanvas</div>
+      <div class="Text">Our goal is to help people visualize the deepest<br />part of their souls — their dreams. <br /><br />Just answer a couple of simple questions and receive<br />a unique drawing illustrating what you felt during sleep.</div>
+  </div>
+  
+
+<div id="GenerationScreen" class="GenerationScreen" style="height: 1220px;">
+    <div class="Bg" style="height: 1200px;"></div>
+    <div class="Title">Try it out right now</div>
+    <div class="Text">Answer all questions honestly, wait<br/>a little and enjoy your drawing!</div>
+
+<form id="genForm" action="/" method="post">
+
+    <div class="inputs">
+
+    <div class="leftColumn">
+
+            <div class="GeneralInputs">
+            <input class="generalInput" type="text" id="nameInput" name="nameInput" placeholder="Your name"><br>
+            <input class="generalInput" type="text" id="instaInput" name="instaInput" placeholder="Your username in instagram"><br>
+            <input class="generalInput" type="text" id="dreamInput" name="dreamInput" placeholder="Name of your dream"><br>
+
+            <div class="generalInput" id="dateInputContainer">
+            <label for="dateInput" id="dateLabel">Date of your dream</label>
+            <input type="date" id="dateInput" name="dateInput"> <br>
+            </div>
+            </div>
+
+        
+
+            <div class="questionInputContainer">
+            <label class="radioInputLabel">What is the main emotion<br>of your dream?</label>
+            <div class="radioColumns">
+                <div class="radioColumn">
+                    <div class="radioLabelContainer">
+                        <input id="emotion1" type="radio" name="emotion" value="1" checked><label for="emotion1"> Happiness </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="emotion2" type="radio" name="emotion" value="2"><label for="emotion2"> Sadness </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="emotion3" type="radio" name="emotion" value="3"><label for="emotion3"> Uncertainty  </label>
+                    </div>
+                </div>
+                <div class="radioColumn">
+                    <div class="radioLabelContainer">
+                        <input id="emotion4" type="radio" name="emotion" value="4"><label for="emotion4"> Intrigue </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="emotion5" type="radio" name="emotion" value="5"><label for="emotion5"> Love </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="emotion6" type="radio" name="emotion" value="6"><label for="emotion6"> Ecstasy </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="questionInputContainer">
+            <label class="radioInputLabel">What was the general<br>atmosphere in your dream?</label>
+            <div class="radioColumns">
+                <div class="radioColumn">
+                    <div class="radioLabelContainer">
+                        <input id="atmosphere1" type="radio" name="atmosphere" value="1" checked><label for="atmosphere1"> Joyful </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="atmosphere2" type="radio" name="atmosphere" value="2"><label for="atmosphere2"> Calm </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="atmosphere3" type="radio" name="atmosphere" value="3"><label for="atmosphere3"> Melancholic </label>
+                    </div>
+                </div>
+                <div class="radioColumn">
+                    <div class="radioLabelContainer">
+                        <input id="atmosphere4" type="radio" name="atmosphere" value="4"><label for="atmosphere4"> Unexpected </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="atmosphere5" type="radio" name="atmosphere" value="5"> <label for="atmosphere5"> Mystical </label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="atmosphere6" type="radio" name="atmosphere" value="6"> <label for="atmosphere6">Scary </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+        <div class="rightColumn">
+
+            <div class="questionInputContainer" id="feelingsInput">
+                <label class="radioInputLabel">How did you feel while<br>you were sleeping?</label>
+                <div class="radioColumns">
+                    <div class="radioColumn">
+                        <div class="radioLabelContainer">
+                            <input id="feeling1" type="radio" name="feeling" value="1" checked> <label for="feeling1"> I was pleased </label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="feeling2" type="radio" name="feeling" value="2"> <label for="feeling2">I felt comfortable </label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="feeling3" type="radio" name="feeling" value="3"> <label for="feeling3"> I felt neutral </label>
+                        </div>
+                    </div>
+                    <div class="radioColumn">
+                        <div class="radioLabelContainer">
+                            <input id="feeling4" type="radio" name="feeling" value="4"> <label for="feeling4">I was surprised </label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="feeling5" type="radio" name="feeling" value="5"> <label for="feeling5">I was confused </label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="feeling6" type="radio" name="feeling" value="6"> <label for="feeling6">I was scared </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="questionInputContainer">
+                <label class="radioInputLabel">Which phrase best<br>describes your dream?</label>
+                <div class="radioColumns">
+                    <div class="radioColumn">
+                        <div class="radioLabelContainer">
+                            <input id="phrase1" type="radio" name="phrase" value="1" checked> <label for="phrase1">Feeling of wholeness</label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="phrase2" type="radio" name="phrase" value="2"> <label for="phrase2"> Stability and order </label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="phrase3" type="radio" name="phrase" value="3"> <label for="phrase3">Harmony of mind </label>
+                        </div>
+                    </div>
+                    <div class="radioColumn">
+                        <div class="radioLabelContainer">
+                            <input id="phrase4" type="radio" name="phrase" value="4"> <label for="phrase4">Focus </label>
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="phrase5" type="radio" name="phrase" value="5"> <label for="phrase5">Danger </label> 
+                        </div>
+                        <div class="radioLabelContainer">
+                            <input id="phrase6" type="radio" name="phrase" value="6"> <label for="phrase6"> Freedom  </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="questionInputContainer">
+                <label class="radioInputLabel">What was the lighting<br>like in your dream?</label>
+                <div class="radioColumns">
+                <div class="radioColumn">
+                    <div class="radioLabelContainer">
+                        <input id="lighting1" type="radio" name="lighting" value="1" checked> <label for="lighting1">Soft light</label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="lighting2" type="radio" name="lighting" value="2"> <label for="lighting2">Twilight or darkness</label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="lighting3" type="radio" name="lighting" value="3"> <label for="lighting3">Shadows and contrasts</label>
+                    </div>
+                    <div class="radioLabelContainer">
+                        <input id="lighting4" type="radio" name="lighting" value="4"> <label for="lighting4">Neon light</label>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+
+        </div>
+
+
+        <div class="ButtonContainer">
+            <button id="button_submit" type="submit"> <img id="Button2" src="http://127.0.0.1:5000/static/materials/button2.svg" /> </button>
+        </div>
+
+        
+    </form>
+
+    <div id="myModal" class="modal">
+
+        <div style="position: relative; width: 950px; height: 650px; margin: auto;">
+
+        <div class="modal-content">
+
+            <span class="close"><img id="iconClose" src="http://127.0.0.1:5000/static/materials/icon_close.svg" /></span>
+            <div class="photoTitle">
+            
+                <img id="modalImage" src=none alt="Generated Image">
+                <div class="modalTextContainer">
+                <div class="modalTitle"> Here is your unique abstract illustration reflecting your feelings and emotions during the dream! </div>
+                <div class="modalCaption"> name of the dream </div>
+                <div id="modalNameDream" class="modalText"> Dream of an unknown internet wanderer </div>
+                <div class="modalCaption"> Date of the dream </div>
+                <div id="modalDate" class="modalText"> Once upon a time... </div>
+                <div class="modalCaption"> Your name </div>
+                <div id="modalName" class="modalText"> Anonymous #2394 </div>
+                <button class="modalButton1" onclick="showMessage()"> Public on our website </button>
+                <button class="modalButton2"> Save as .png </button>
+
+                </div>
+                
+            </div>
+            
+        </div>
+
+        
+        <div id="loading" class="loadingContainer">
+            <div class ="loading15">
+            <div class="progress">
+            <div class="color"></div>
+            </div>
+        </div>
+            
+        </div>
+    </div>
+    </div>
+
+      </div>
+
+<div class="CarauselScreen" style="height: 1065px;">
+    <div class="Bg" style="height: 1005px;"></div>
+    <div class="Title">Our users dreams</div>
+    <div class="Text">These are illustrations based on the dreams<br/>of our users, each of them is absolutely unique.</div>
+    <input type="search" id="search" placeholder="Search" />
+
+
+<div class = "sortButtons">
+    <button class="sortButton" id="sortButtonDate">   Recent first   </button>
+    <button class="sortButton" id="sortButtonViews">   Popular first   </button>
+    <button class="sortButton" id="sortButtonAlphabet">   A-Z  </button>
+    <button class="sortButton" id="sortButtonInsta">   Only with contacts   </button>
+</div>
+    
+
+
+
+<div id="cards" class="cards">
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_001.png">
+        <div class="textContainer">
+        <div class="TextCard">Study in the Planetary Resonance</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">30.08.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">98</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_002.png">
+        <div class="textContainer">
+        <div class="TextCard">Ethereal Guiding Dreams</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">19.09.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">12</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a class="noInsta" href="https://www.instagram.com/stepastepastepast/" target="_blank"> Author doesn't have the instagram </button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_003.png">
+        <div class="textContainer">
+        <div class="TextCard">Lunar Dance of Reverie</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">22.07.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">34</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_004.png">
+        <div class="textContainer">
+        <div class="TextCard">Stellar Journey To Harmony of Mind</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">05.01.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">76</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_005.png">
+        <div class="textContainer">
+        <div class="TextCard">Healing Fairy Tale Dreams</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">17.03.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">54</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a class="noInsta" href="https://www.instagram.com/stepastepastepast/" target="_blank"> Author doesn't have the instagram </button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_006.png">
+        <div class="textContainer">
+        <div class="TextCard">Secret Raindow Mirrors</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">22.05.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">41</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_007.png">
+        <div class="textContainer">
+        <div class="TextCard">Sparkling Nocturnal Illusions</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">08.07.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">19</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_008.png">
+        <div class="textContainer">
+        <div class="TextCard">Whirlwinds of Starry Enchantment</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">14.09.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">23</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_009.png">
+        <div class="textContainer">
+        <div class="TextCard">Golden Wings of Lunar Dreams</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">03.02.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">49</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_010.png">
+        <div class="textContainer">
+        <div class="TextCard">Colourful Astral Gates of Vision</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">07.06.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">56</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a class="noInsta" href="https://www.instagram.com/stepastepastepast/" target="_blank"> Author doesn't have the instagram </button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_011.png">
+        <div class="textContainer">
+        <div class="TextCard">Enchanted Visions Of Night</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">05.17.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">18</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_012.png">
+        <div class="textContainer">
+        <div class="TextCard">Celestial Dreamscape Realm</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">01.30.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">75</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_013.png">
+        <div class="textContainer">
+        <div class="TextCard">Whispers In Ethereal Mist</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">01.21.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">29</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_014.png">
+        <div class="textContainer">
+        <div class="TextCard">Fantasy Realms Awaken</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">02.02.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">91</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_015.png">
+        <div class="textContainer">
+        <div class="TextCard">Harmony Of Dreaming</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">01.07.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">83</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a class="noInsta" href="https://www.instagram.com/stepastepastepast/" target="_blank"> Author doesn't have the instagram </button></a>
+    </div>
+
+    <div class="card">
+        <img class="cardImage" src="http://127.0.0.1:5000/static/materials/images/image_016.png">
+        <div class="textContainer">
+        <div class="TextCard">Nebula Dreams Unveiled</div>
+        <div class="captionContainer">
+        <div class="CaptionDate">08.02.23</div>
+        <div class="viewsContainer">
+        <div class="CaptionViews">11</div>
+        <img class="view_icon" src="http://127.0.0.1:5000/static/materials/view_icon.png"></img>
+        </div>
+        </div>
+        </div>
+        <a href="https://www.instagram.com/stepastepastepast/" target="_blank"><button id="button_card" type="submit"> <img id="Button3" src="http://127.0.0.1:5000/static/materials/button3.svg" /></button></a>
+    </div>
+
+    </div>
+            
+</div>
+
+
+
+<div class="ContactsScreen" style="height: 700px;">
+    <div class="Title">Contacts</div>
+    <div class="Text">If you have any ideas for cooperation,<br/>contact us — we are open to your offers.</div>
+
+    <div class="links">
+        <a id = "link" href="mailto:m.stpsprdnv@gmail.com" target="_blank">
+        email
+        </a>
+
+        <a id = "link" href="https://wa.me/79137451715" target="_blank">
+        whatsapp
+        </a>
+
+        <a id = "link" href="https://www.instagram.com/stepastepastepast/" target="_blank">
+        instagram
+        </a>
+    </div>
+
+    <div class="Copyright">2023 ©</div>
+
+</div>
+
+</div>
+
+<div class="RectangleBlack" style="opacity: 0.20; background: black"></div>
+
+  <script src="http://127.0.0.1:5000/static/app.js"> </script>
+  </body>
+</html>
